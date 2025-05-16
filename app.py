@@ -432,7 +432,7 @@ def fetch_video_info():
 
     try:
         # Get video information using PyTubeFix
-        yt = YouTube(url, use_po_token=True)
+        yt = YouTube(url)
 
         # Get available streams (excluding audio-only)
         streams = yt.streams.filter(progressive=True)
@@ -482,7 +482,7 @@ def download_video():
         }), 400
 
     try:
-        yt = YouTube(url, use_po_token=True)
+        yt = YouTube(url)
         stream = yt.streams.get_by_itag(itag)
 
         if not stream:
